@@ -20,7 +20,7 @@ with the name of your template.
 
     template: example.html
 
-On the command line, run either of these commands:
+Then, on the command line, run either of these commands:
 
     % yamldoc input.yaml output.html
     % yamldoc input.yaml output.pdf
