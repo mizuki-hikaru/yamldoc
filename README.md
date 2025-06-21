@@ -5,11 +5,11 @@ populating the variables in the  Jinja2 template with data from your YAML file.
 
 ## Installation
 
-    pip install https://yamldoc.org
+    pip install https://yamldoc.org/yamldoc.tar.gz
 
 If you need to add it to requirements.txt, add this line:
 
-    yamldoc @ https://yamldoc.org
+    https://yamldoc.org/yamldoc.tar.gz
 
 ## Usage
 
