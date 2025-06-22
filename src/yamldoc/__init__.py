@@ -4,6 +4,11 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 from mistletoe import markdown
 
+TEMPLATE_NAME_REGEX = r'[a-zA-Z0-9._-]+'
+
+def is_valid_template_name(s):
+    return re.fullmatch(TEMPLATE_NAME_REGEX, s) is not None
+
 def yamldoc(input_path, output_path):
     input_path = Path(input_path)
     output_path = Path(output_path)
@@ -16,6 +21,9 @@ def yamldoc(input_path, output_path):
         raise ValueError("YAML file must contain a 'template' field at the top level.")
 
     template_name = data.pop("template")
+    if not is_valid_template_name(template_name):
+        raise Exception("Invalid template name")
+
     templates_dir = Path("templates")
 
     if not (templates_dir / template_name).exists():
