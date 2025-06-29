@@ -30,7 +30,7 @@ def yamldoc(input_path, output_path):
         raise FileNotFoundError(f"Template '{template_name}' not found in 'templates/' directory.")
 
     # Set up Jinja2 environment
-    env = Environment(loader=FileSystemLoader(templates_dir))
+    env = Environment(loader=FileSystemLoader(templates_dir), autoescape=True)
     env.filters["markdown"] = lambda text: markdown(text or "")
     template = env.get_template(template_name)
     rendered_html = template.render(**data)
