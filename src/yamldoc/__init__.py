@@ -34,7 +34,7 @@ def yamldoc(input_path, output_path):
     env = Environment(loader=FileSystemLoader(templates_dir), autoescape=select_autoescape(['html', 'xml']))
     env.filters["markdown"] = lambda text: markdown(text or "")
     template = env.get_template(template_name)
-    rendered_html = template.render(**data)
+    rendered_html = template.render(**data, _context=data)
 
     # Output
     if output_path.suffix == ".pdf":
