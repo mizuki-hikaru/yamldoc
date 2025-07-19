@@ -1,6 +1,7 @@
 import sys
 import yaml
 import re
+from markupsafe import Markup
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from mistletoe import markdown
@@ -32,7 +33,7 @@ def yamldoc(input_path, output_path):
 
     # Set up Jinja2 environment
     env = Environment(loader=FileSystemLoader(templates_dir), autoescape=select_autoescape(['html', 'xml']))
-    env.filters["markdown"] = lambda text: markdown(text or "")
+    env.filters["markdown"] = lambda text: Markup(markdown(text or ""))
     template = env.get_template(template_name)
     rendered_html = template.render(**data, _context=data)
 
