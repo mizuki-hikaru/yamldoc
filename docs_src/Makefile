@@ -1,2 +1,2 @@
 docs:
-	yamldoc index.yaml ../docs/index.html
+	yamldoc index.yaml template.html ../docs/index.html

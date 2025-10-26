@@ -15,24 +15,17 @@ content: |
 
   ## Usage
 
-  Put your Jinja2 template in a directory called `templates/`.
+  On the command line, run either of these commands:
 
-  At the beginning of your YAML file, add this value, replacing `example.yaml`
-  with the name of your template.
-
-      template: example.html
-
-  Then, on the command line, run either of these commands:
-
-      % yamldoc input.yaml output.html
-      % yamldoc input.yaml output.pdf
+      % yamldoc input.yaml template.html output.html
+      % yamldoc input.yaml template.html output.pdf
 
   Or in Python, you can use it like this:
 
       from yamldoc import yamldoc
 
-      yamldoc("input.yaml", "output.html")
-      yamldoc("input.yaml", "output.pdf")
+      yamldoc("input.yaml", "template.html", "output.html")
+      yamldoc("input.yaml", "template.html", "output.pdf")
 
   ## Markdown support
 

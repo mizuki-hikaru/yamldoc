@@ -53,20 +53,15 @@ populating the variables in the  Jinja2 template with data from your YAML file.<
 <pre><code>https://yamldoc.org/yamldoc.tar.gz
 </code></pre>
 <h2>Usage</h2>
-<p>Put your Jinja2 template in a directory called <code>templates/</code>.</p>
-<p>At the beginning of your YAML file, add this value, replacing <code>example.yaml</code>
-with the name of your template.</p>
-<pre><code>template: example.html
-</code></pre>
-<p>Then, on the command line, run either of these commands:</p>
-<pre><code>% yamldoc input.yaml output.html
-% yamldoc input.yaml output.pdf
+<p>On the command line, run either of these commands:</p>
+<pre><code>% yamldoc input.yaml template.html output.html
+% yamldoc input.yaml template.html output.pdf
 </code></pre>
 <p>Or in Python, you can use it like this:</p>
 <pre><code>from yamldoc import yamldoc
 
-yamldoc("input.yaml", "output.html")
-yamldoc("input.yaml", "output.pdf")
+yamldoc("input.yaml", "template.html", "output.html")
+yamldoc("input.yaml", "template.html", "output.pdf")
 </code></pre>
 <h2>Markdown support</h2>
 <p>You can use markdown in your YAML file and render it with something like this
